@@ -2,7 +2,7 @@
 #include <functional>
 #include <iostream>
 
-#include "FuncPack/FuncPack.hpp"
+#include "Executers/SingleArg.hpp"
 #define FUNCS \
   X(c)        \
   X(b)        \
