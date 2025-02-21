@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "makeBuildDir",
+            "type": "shell",
+            "command": "mkdir -p .build",
+            "args": []
+        },
+        {
+            "label": "cmakeDebug",
+            "type": "shell",
+            "command": "cd .build && cmake .. -DCMAKE_BUILD_TYPE=Debug",
+            "args": []
+        },
+        {
+            "label": "cmakeRelease",
+            "type": "shell",
+            "command": "cd .build && cmake .. -DCMAKE_BUILD_TYPE=release",
+            "args": [] 
+        },
+        {
+            "label": "make",
+            "type": "shell",
+            "command": "cd .build; make",
+            "args": []
+        },
+        {
+            "label": "buildDebug",
+            "dependsOn": [
+                "makeBuildDir",
+                "cmakeDebug",
+                "make"
+            ]
+        },
+        {
+            "label": "buildRelease",
+            "dependsOn": [
+                "makeBuildDir",
+                "cmakeRelease",
+                "make"
+            ]
+        }
+    ]
+}
